@@ -62,7 +62,9 @@ class User {
 			$this->userId = "0";
 			$this->userName = "Guest";
 			
-		}	
+		}
+		
+		$conn->disconnect();
 	}
 	
 	private function createUser() {

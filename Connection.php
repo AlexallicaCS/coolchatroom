@@ -14,7 +14,7 @@ class Connection {
 		$this->password = '';
 		$this->dbname = 'db_chatroom';
 		
-		$this->mysqli = mysqli_connect($this->host,$this->dbusername,$this->password,$this->dbname);
+		$this->mysqli = new mysqli($this->host,$this->dbusername,$this->password,$this->dbname);
 		
 		if ($this->mysqli->connect_error) {
 			die('Connect Error (' . $this->mysqli->connect_errno . ') ' . $this->mysqli->connect_error);
@@ -26,7 +26,7 @@ class Connection {
 	}
 		
 	public function disconnect() {
-		$this->close();
+		$this->mysqli->close();
 	}
 	
 }
