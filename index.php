@@ -68,7 +68,7 @@
 				
 			</ul>
 		</div>
-		<div id="dashboard_center">
+		<div id="chatbox">
 			
 		</div>
 		<span id="message_box">
