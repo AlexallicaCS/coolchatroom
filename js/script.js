@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	
 	function updateChatList() {
-		
+			alert("LOL");
 			$.get( "updateChatList.php", function( data ) {
 			  
 			  var parsedata = JSON.parse(data);
@@ -29,7 +29,7 @@ $(document).ready(function() {
 	 * Create new chatroom by setting a name
 	 */
 	$('#newchat').click(function(e) {
-		
+		alert("LOL");
 		var chatname, sanchatname;
 		
 		chatname = prompt("Chatroom name:");
@@ -48,7 +48,7 @@ $(document).ready(function() {
 				success: function (data) {
 					var chatdet = JSON.parse(data);
 					
-					$("#chatroomlist").append('<li data-chatroom-number="' + chatdet[1] + '"><a href="./chat.php?id=' + chatdet[1] + '&name=' + parsedata[i].name + '" target="_blank">' + chatdet[0] + '</a></li>');
+					$("#chatroomlist").append('<li data-chatroom-number="' + chatdet[1] + '"><a href="./chat.php?id=' + chatdet[1] + '&name=' + sanchatname + '" target="_blank">' + chatdet[0] + '</a></li>');
 					updateChatList();
 					
 				}

@@ -10,7 +10,7 @@
 	if(isset($_SESSION["userID"]))
 	{
 		
-		//$this->addUser($_GET['id'],$_SESSION['userID']);
+		
 		
 		
 	} else {
