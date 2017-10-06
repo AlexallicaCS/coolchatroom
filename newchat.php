@@ -4,6 +4,8 @@
 	
 	$newchat = new Chatroom($_POST['chat_name'],$_SESSION['userID']);
 	
-	echo "yeah";
+	$_SESSION['currentChatID'] = $newchat->getChatRoomId();
+	
+	echo json_encode(array($newchat->getChatRoomName(),$newchat->getChatRoomId()));
 
 ?>

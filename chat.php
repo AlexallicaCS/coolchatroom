@@ -57,12 +57,30 @@
 		<?php echo "Welcome, " . $_SESSION['name'] . " [ " . $_SESSION['role'] . " ] "; ?>
 		<a href="./logout.php">logout</a>
 	</div>
-	<div id="chatrooms">
-		<h3 class="dashboard_group_headers">Chatrooms <a id="newchat" href="#" />[+]</a></h3>
-		<ul id="chatroomlist">
-				
-		</ul>	
+	<div id="dashboard">
+		<!-- Left Segment for displaying all active chatrooms -->
+		<div id="dashboard_left" class="dashboard_segments">
+			<h3 class="dashboard_group_headers">Chatrooms <a id="newchat" href="#" />[+]</a></h3>
+			<ul id="chatroomlist">
+					
+			</ul>
+		</div>
+		<div id="chatbox"><!-- Conversations happen here! --></div>
+		<span id="message_box">
+			<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+				<input  id="selectedroom" type="text" placeholder="Enter Chatroom/User to Send a Message" name="chatroom-user" required>
+				<textarea placeholder="Write Your Message Here..." required></textarea>
+				<input id="sendbutton" type="submit" value="Send" />
+			</form>
+		</span>
+		<!-- Right Segment for displaying all currently logged in users -->
+		<div id="dashboard_right" class="dashboard_segments">
+			<h3 class="dashboard_group_headers">Users</h3>
+			
+		</div>
 	</div>
+	
+	
 	<?php } else { ?>
 		
 		<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">

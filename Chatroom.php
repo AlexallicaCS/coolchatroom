@@ -18,12 +18,11 @@ class Chatroom {
 		
 		//Stores in database and at the same time getting the generated Id
 		$this->setChatRoomId();
-		
-		
+
 	}
 	
-	public function getNumberOfChatRooms() {
-		return count($chatrooms);
+	public function getChatRoomName() {
+		return $this->chatRoomName;
 	}
 	
 	public function getChatRoomId() {
@@ -44,10 +43,7 @@ class Chatroom {
 		$conn->disconnect();
 				
 	}
-	
-	public function getNumberOfNewMessages() {
-		return $this->$numberOfNewMessages;
-	}
+
 	
 	/*
 	 *

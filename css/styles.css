@@ -32,7 +32,18 @@
 	background: #000000;
 }
 
-/**** Main Panel/Dashboard ****/
+#chatrooms li {
+	text-align: center;
+}
+
+#chatrooms li a {
+	text-decoration: none;
+	color: black;
+	font-weight: 900;
+	text-align: center;
+}
+
+/**** Chat ****/
 #dashboard {
 	width: 79%;
 	margin: 0 auto;
@@ -49,6 +60,20 @@
 #dashboard ul li {
 	padding: 5px;
 	background: #ffffff;
+}
+
+#dashboard ul li a {
+	background: #ffffff;
+	text-decoration: none;
+	font-weight: 700;
+	color: #000000;
+}
+
+#dashboard ul li a:hover {
+	background: #000000;
+	text-decoration: none;
+	font-weight: 700;
+	color: #ff0000;
 }
 
 .dashboard_segments {
@@ -68,8 +93,10 @@
 	position: relative;
 }
 
-#message_box {
-	
+#selectedroom {
+	background: white;
+	color: black;
+	border: 1px solid black;
 }
 
 textarea {
@@ -107,6 +134,7 @@ textarea {
 	background: #000000;
 	color: red;
 	margin-bottom: 20px;
+	text-align: center;
 }
 
 .dashboard_group_headers a {
