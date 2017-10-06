@@ -44,7 +44,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Cool Chatroom</title>
+  <title>Cool Chatroom Main Menu</title>
   <meta name="description" content="Simple PHP Chatroom">
 
   <link rel="stylesheet" href="css/styles.css">
@@ -59,9 +59,11 @@
 	</div>
 	<div id="chatrooms">
 		<h3 class="dashboard_group_headers">Chatrooms <a id="newchat" href="#" />[+]</a></h3>
-		<ul id="chatroomlist">
-				
-		</ul>	
+		<ul id="chatroomlist"></ul>	
+	</div>
+	<div id="dashboard_right" class="dashboard_segments">
+		<h3 class="dashboard_group_headers">Users</h3>
+		<ul id="userlist"></ul>
 	</div>
 	<?php } else { ?>
 		

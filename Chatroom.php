@@ -58,7 +58,7 @@ class Chatroom {
 		return count($this->chatRoomUsers);
 	}
 	
-	public function addUser($userId) {
+	public function addUser($chatroom_id, $userId) {
 		
 		array_push($this->chatRoomUsers, $userId);
 		
@@ -69,7 +69,7 @@ class Chatroom {
 		//SQL Injection Prevention
 		$newUserId = mysqli_real_escape_string($mysqli, $userId);
 				
-		$sql = "UPDATE chatrooms SET users=" . json_encode($this->chatRoomUsers) . "WHERE chatroom_id=" . $this->chatRoomId;
+		$sql = "UPDATE chatrooms SET users=" . json_encode($this->chatRoomUsers) . "WHERE chatroom_id=" . $chatroom_id;
 		$updt = mysqli_query($mysqli, $sql);
 		
 		$conn->disconnect();		

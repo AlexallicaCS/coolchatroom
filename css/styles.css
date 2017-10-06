@@ -34,6 +34,7 @@
 
 #chatrooms li {
 	text-align: center;
+	padding: 10px;
 }
 
 #chatrooms li a {

@@ -7,35 +7,16 @@
 	require_once("./User.php");
 	require_once("./Chatroom.php");
 	
-	if(isset($_POST["login"]))
+	if(isset($_SESSION["userID"]))
 	{
-		if(empty($_POST["username"]) || empty($_POST["password"]))
-		{
-			//in case of someone bypassing front end controls
-			
-			$error = "You need to provide a username and password. Please go back!";
-			
-			echo $error;
-			
-			exit();
 		
-		} else {
-			
-			if (isset($_POST['username']) and isset($_POST['password'])) {
-				$username = stripslashes($_POST['username']);
-				$password = stripslashes($_POST['password']);
-				
-				$user = new User($username,$password);
-							
-				$_SESSION['userID'] = $user->getUserId();
-				$_SESSION['name'] 	= $user->getUserName();
-				$_SESSION['role']	= $user->getUserRole();
-				
-				if ($debug) {
-					var_dump($_SESSION);
-				}
-			}
-		}
+		$this->addUser($_GET['id'],$_SESSION['userID']);
+		
+		
+	} else {
+		
+		header('location: ./index.php');
+	
 	}
 ?>
 <!Doctype html>
@@ -60,15 +41,12 @@
 	<div id="dashboard">
 		<!-- Left Segment for displaying all active chatrooms -->
 		<div id="dashboard_left" class="dashboard_segments">
-			<h3 class="dashboard_group_headers">Chatrooms <a id="newchat" href="#" />[+]</a></h3>
-			<ul id="chatroomlist">
-					
-			</ul>
+			<h3 class="dashboard_group_headers">Chatroom</h3>
+			<ul id="chatroom"><?php echo $_GET['name']; ?></ul>
 		</div>
 		<div id="chatbox"><!-- Conversations happen here! --></div>
 		<span id="message_box">
 			<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-				<input  id="selectedroom" type="text" placeholder="Enter Chatroom/User to Send a Message" name="chatroom-user" required>
 				<textarea placeholder="Write Your Message Here..." required></textarea>
 				<input id="sendbutton" type="submit" value="Send" />
 			</form>

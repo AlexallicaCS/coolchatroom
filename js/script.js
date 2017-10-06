@@ -9,7 +9,7 @@ $(document).ready(function() {
 			  $("#chatroomlist li").remove();
 			  
 			  for(i=0;i<JSON.parse(data).length;i++) {
-					$("#chatroomlist").append('<li data-chatroom-number="' + parsedata[i].chatroom_id + '"><a href="#">' + parsedata[i].name + '</a></li>');
+					$("#chatroomlist").append('<li data-chatroom-number="' + parsedata[i].chatroom_id + '"><a href="./chat.php?id=' + parsedata[i].chatroom_id + '&name=' + parsedata[i].name + '" target="_blank">' + parsedata[i].name + '</a></li>');
 			  }
 			  
 			});
@@ -19,6 +19,11 @@ $(document).ready(function() {
 	
 	updateChatList();
 	//setInterval(function() { updateChatList() }, 1000);
+	
+	/*
+	 * Add user to the chatroom users
+	 */
+	function enterChat() {	$.ajax({type: "POST", url: 'enterchat.php'}); }
 	
 	/*
 	 * Create new chatroom by setting a name
@@ -43,7 +48,7 @@ $(document).ready(function() {
 				success: function (data) {
 					var chatdet = JSON.parse(data);
 					
-					$("#chatroomlist").append('<li data-chatroom-number="' + chatdet[1] + '"><a href="#">' + chatdet[0] + '</a></li>');
+					$("#chatroomlist").append('<li data-chatroom-number="' + chatdet[1] + '"><a href="./chat.php?id=' + chatdet[1] + '&name=' + parsedata[i].name + '" target="_blank">' + chatdet[0] + '</a></li>');
 					updateChatList();
 					
 				}
