@@ -5,6 +5,7 @@
 	session_start();
 	
 	require_once("./User.php");
+	require_once("./Chatroom.php");
 	
 	if(isset($_POST["login"]))
 	{
@@ -59,21 +60,43 @@
 	<div id="dashboard">
 		<!-- Left Segment for displaying all active chatrooms -->
 		<div id="dashboard_left" class="dashboard_segments">
-			<h3 class="dashboard_group_headers">Active Chatrooms</h3>
+			<h3 class="dashboard_group_headers">Chatrooms <a id="newchat" href="#" />[+]</a></h3>
 			<ul>
-				<?php  ?>
-				<li>One</li>
-				<li>Master</li>
-				<li>Kill</li>
-				
+				<?php 
+					//get chatrooms available		
+					/* if ($debug) { var_dump($_SESSION); } 
+					
+					$conn = new Connection();
+		
+					$mysqli = $conn->getConnectionString();
+					
+					//SQL Injection Prevention
+					$username = mysqli_real_escape_string($mysqli, $username);
+					$password = mysqli_real_escape_string($mysqli, $password);
+					
+					$sql = "SELECT name FROM chatrooms";
+					$result = mysqli_query($mysqli, $sql);
+					$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+					if (mysqli_num_rows ($result) == 1)
+					{
+						
+						
+					} else {
+						
+						$this->userId = "0";
+						$this->userName = "Guest";
+						
+					}
+					
+					$conn->disconnect(); */
+					
+				?>				
 			</ul>
 		</div>
-		<div id="chatbox">
-			
-		</div>
+		<div id="chatbox"><!-- Conversations happen here! --></div>
 		<span id="message_box">
 			<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-				<textarea></textarea>
+				<textarea placeholder="Write Your Message Here..." ></textarea>
 				<input id="sendbutton" type="submit" value="Send" />
 			</form>
 		</span>
@@ -102,7 +125,7 @@
 	
 	<?php } ?>
 	
-	<script src="js/script.js"></script>
+	<script src="./js/script.js"></script>
 	
 </body>
 </html>

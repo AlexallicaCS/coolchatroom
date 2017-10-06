@@ -18,6 +18,12 @@ class Chatroom {
 		
 		//Stores in database and at the same time getting the generated Id
 		$this->setChatRoomId();
+		
+		
+	}
+	
+	public function getNumberOfChatRooms() {
+		return count($chatrooms);
 	}
 	
 	public function getChatRoomId() {
@@ -30,11 +36,11 @@ class Chatroom {
 		
 		$mysqli = $conn->getConnectionString();
 		
-		$sql = "INSERT INTO chatrooms VALUES(NULL,'" . $this->chatRoomName . "','" . json_encode($this->chatRoomUsers) . "', NOW()";
-		$ins = $mysqli->query($mysqli, $sql);
+		$sql = "INSERT INTO chatrooms VALUES(NULL,'" . $this->chatRoomName . "','" . json_encode($this->chatRoomUsers) . "', NOW())";
+		$ins = mysqli_query($mysqli, $sql);
 		
 		$this->chatRoomId = $mysqli->insert_id;
-				
+		
 		$conn->disconnect();
 				
 	}

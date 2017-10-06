@@ -76,10 +76,11 @@ textarea {
 	position: absolute;
 	bottom: 1%;
 	background: #ffffff;
-	width: 75%;
-	min-height: 120px;
+	width: 74.5%;
+	min-height: 110px;
 	border: 2px solid black;
 	resize: none;
+	padding: 5px;
 }
 
 #sendbutton {
@@ -106,6 +107,12 @@ textarea {
 	background: #000000;
 	color: red;
 	margin-bottom: 20px;
+}
+
+.dashboard_group_headers a {
+	background: black;
+	color: red;
+	text-decoration: none;
 }
 
 #dashboard_right {
